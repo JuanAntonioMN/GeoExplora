@@ -13,13 +13,17 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position) {
+
             case 0:
-                return new ContenidosFragment(); // Fragmento de contenidos
-            case 1:
                 return new InicioFragment(); //Fragemento de Inicio
+            
+            case 1:
+                return new perfilFragment();//Fragmento de Perfil
             case 2:
-                //return new FragmentTwo(); // Otro fragmento
-            // Agrega más casos para otras vistas
+                return new ContenidosFragment(); // Fragmento de contenidos
+            case 3:
+
+            return new JuegosFragment(); // Fragemento de Juegos
             default:
                 return null;
         }
@@ -28,6 +32,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @Override
     public int getItemCount() {
         // Devuelve la cantidad de vistas que tienes.
-        return 2;
+        return 4;
     }
 }
