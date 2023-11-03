@@ -27,13 +27,13 @@ public class InicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Infla el diseño XML de la vista de contenidos
         View view = inflater.inflate(R.layout.inicio, container, false);
-        imageView = view.findViewById(R.id.imagen); // Supongamos que tienes una ImageView con ID "imagen"
+        //imageView = view.findViewById(R.id.imagen); // Supongamos que tienes una ImageView con ID "imagen"
 
         // Busca el TextView en tu diseño XML
-        textView = view.findViewById(R.id.informacion);
+       // textView = view.findViewById(R.id.informacion);
 
         // Realiza la solicitud a la API y muestra los datos en el TextView
-        obtenerObservaciones();
+        //obtenerObservaciones();
         return view;
     }
     private void obtenerObservaciones() {

@@ -3,12 +3,14 @@ package com.example.geoexplora;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -61,11 +63,23 @@ public class ContenidosFragment extends Fragment {
         if(temasGeografia[i].getBandera()==true){
             Intent intent=new Intent(getActivity(),ContenidosActivity.class);
             startActivity(intent);
-            Toast.makeText(this.getActivity(),"Contenido: "+temasGeografia[i].getTema()+adapterview.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
-
         }
         else{
-            Toast.makeText(this.getActivity(),"Aun te falta concluir el tema: "+temasGeografia[i-1].getTema(),Toast.LENGTH_SHORT).show();
+            // Crear un Toast personalizado
+            Toast customToast = Toast.makeText(this.getActivity(), "Aun te falta concluir el tema: " + temasGeografia[i - 1].getTema(), Toast.LENGTH_SHORT);
+
+            // Establecer el fondo personalizado
+            View toastView = customToast.getView();
+            toastView.setBackgroundResource(R.drawable.custom_toast_background); // El nombre del archivo XML
+
+        // Personalizar el texto (opcional)
+            TextView toastText = toastView.findViewById(android.R.id.message);
+            toastText.setTextSize(5);
+            toastText.setTextColor(Color.WHITE); // Cambiar el color del texto si es necesario
+
+        // Mostrar el Toast personalizado
+            customToast.show();
+
         }
 
     };
