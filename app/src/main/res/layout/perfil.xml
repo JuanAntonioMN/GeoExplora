@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/perfilEtiqueta"
+    android:background="@drawable/fondo1">
+
+    <ImageView
+        android:id="@+id/fondoPantalla"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/imagenPerfil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/nombreUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imagenPerfil"
+        android:layout_centerHorizontal="true"
+        android:text="Nombre de usuario" />
+
+    <TextView
+        android:id="@+id/juegoNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nombreUsuario"
+        android:layout_centerHorizontal="true"
+        android:text="GeoExplora" />
+
+    <TextView
+        android:id="@+id/textViewWinStreak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/juegoNombre"
+        android:layout_centerHorizontal="true"
+        android:text="Racha de juegos ganados: 0" />
+
+    <Button
+        android:id="@+id/btnFondo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewWinStreak"
+        android:layout_centerHorizontal="true"
+        android:text="Cambiar Fondo" />
+
+
+
+</RelativeLayout>
