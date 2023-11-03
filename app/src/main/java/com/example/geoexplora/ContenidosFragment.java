@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,7 +28,7 @@ public class ContenidosFragment extends Fragment {
         listView=view.findViewById(R.id.listview);
         temasGeografia =new Contenidos[] {
                 new Contenidos("Introducción a la geografía",R.drawable.introduccion,true),
-                new Contenidos("El universo",R.drawable.universo,false),
+                new Contenidos("El universo",R.drawable.universo,true),
                 new Contenidos("El sistema solar",R.drawable.sistemasolar,false),
                 new Contenidos( "El planeta tierra",R.drawable.tierra,false),
                 new Contenidos("Estructura de la atmósfera",R.drawable.atmosfera,false),
@@ -48,7 +50,7 @@ public class ContenidosFragment extends Fragment {
                 new Contenidos("Conservación del medio ambiente",R.drawable.consrvacion,false),
                 new Contenidos("Desastres naturales",R.drawable.desastre,false)
         };
-       Context context = inflater.getContext();
+
 
         ContenidosAdapter contenidosAdapter= new ContenidosAdapter(this.getActivity(),temasGeografia);
         listView.setAdapter(contenidosAdapter);
@@ -66,19 +68,35 @@ public class ContenidosFragment extends Fragment {
         }
         else{
             // Crear un Toast personalizado
-            Toast customToast = Toast.makeText(this.getActivity(), "Aun te falta concluir el tema: " + temasGeografia[i - 1].getTema(), Toast.LENGTH_SHORT);
+            Toast customToast = Toast.makeText(this.getActivity(), "", Toast.LENGTH_SHORT);
 
-            // Establecer el fondo personalizado
+        // Obtener el View del Toast
             View toastView = customToast.getView();
-            toastView.setBackgroundResource(R.drawable.custom_toast_background); // El nombre del archivo XML
 
-        // Personalizar el texto (opcional)
-            TextView toastText = toastView.findViewById(android.R.id.message);
-            toastText.setTextSize(5);
-            toastText.setTextColor(Color.WHITE); // Cambiar el color del texto si es necesario
+        // Inflar el diseño personalizado del Toast
+            LayoutInflater inflater = getLayoutInflater();
+            View customToastView = inflater.inflate(R.layout.toast_personalizado, null);
+
+        // Obtener la TextView (contenido) y la ImageView (imagen)
+            TextView textView = customToastView.findViewById(R.id.textToast);
+            ImageView imageView = customToastView.findViewById(R.id.imagenToast);
+
+        // Personalizar el texto y la imagen aquí si es necesario
+            textView.setText("Aun te falta concluir el tema: " + temasGeografia[i - 1].getTema());
+            imageView.setImageResource(temasGeografia[i - 1].getImagen());
+            textView.setTextColor(Color.WHITE);
+            textView.setTextSize(15);
+         // Aplicar el fondo personalizado al contenido del Toast
+            customToastView.setBackgroundResource(R.drawable.custom_toast_background); // El nombre del archivo XML
+
+        // Establecer la vista personalizada en el Toast
+            customToast.setView(customToastView);
+            customToast.setGravity(Gravity.CENTER | Gravity.BOTTOM, 0, 0);
 
         // Mostrar el Toast personalizado
             customToast.show();
+
+
 
         }
 
