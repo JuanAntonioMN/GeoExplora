@@ -1,18 +1,26 @@
 package com.example.geoexplora;
 
-public class Contenidos {
+import java.io.Serializable;
+
+public class Contenidos implements Serializable {
     private String Tema;
     private int Imagen;
-
-    public Contenidos(String Tema,int Imagen){
+    private boolean bandera;
+    public Contenidos(String Tema,int Imagen,boolean bandera){
         this.Tema=Tema;
         this.Imagen=Imagen;
+        this.bandera=bandera;
     }
 
     public String getTema() {
         return Tema;
     }
-
+    public boolean getBandera(){
+        return bandera;
+    }
+    public void setBandera(boolean bandera){
+        this.bandera=bandera;
+    }
     public void setTema(String tema) {
         Tema = tema;
     }

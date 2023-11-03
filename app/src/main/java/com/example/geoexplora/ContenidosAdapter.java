@@ -23,8 +23,8 @@ public class ContenidosAdapter extends ArrayAdapter<Contenidos> {
             LayoutInflater inflater = context.getLayoutInflater();
             convertView = inflater.inflate(R.layout.contenidos, parent, false);
             holder = new ViewHolder();
-            holder.tema = convertView.findViewById(R.id.tema);
             holder.imagen=convertView.findViewById(R.id.imagen);
+            holder.tema = convertView.findViewById(R.id.tema);
             convertView.setTag(holder);
 
         } else {
