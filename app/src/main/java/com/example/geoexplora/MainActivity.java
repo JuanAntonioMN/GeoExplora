@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     @Override

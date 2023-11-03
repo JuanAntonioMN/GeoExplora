@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
 public class JuegosFragment extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Infla el diseño XML de la vista de contenidos
-        View view = inflater.inflate(R.layout.inicio, container, false);
+        View view = inflater.inflate(R.layout.juegos, container, false);
+
         return view;
     }
+
 }
+
 
