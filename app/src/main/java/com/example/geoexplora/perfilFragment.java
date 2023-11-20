@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 
-
 public class perfilFragment extends Fragment{
     private ImageView fondoImageView;
     private int[] fondos = {R.drawable.fondo1, R.drawable.fondo2, R.drawable.fondo3, R.drawable.fondo4, R.drawable.fondo5};
