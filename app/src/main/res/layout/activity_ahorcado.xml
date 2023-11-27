@@ -1,27 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_ahorcado">
+
+    <TextView
+        android:id="@+id/animalInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:text=""
+        android:layout_below="@id/guessButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/hiddenWordTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
+        android:textSize="24dp"
         android:text="---------"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColor="#000000"/>
 
     <EditText
         android:id="@+id/letterEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Ingrese una letra"
-        android:inputType="text"
+        android:textColorHint="#333333"
+        android:inputType="textCapCharacters"
         android:layout_below="@id/hiddenWordTextView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textSize="24dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:textColor="#000000"/>
 
     <Button
         android:id="@+id/guessButton"
@@ -30,7 +49,8 @@
         android:text="Adivinar"
         android:layout_below="@id/letterEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
-
+        android:layout_marginTop="16dp"
+        android:background="#F5F5DC"
+        android:textColor="#333333"/>
 
 </RelativeLayout>
