@@ -11,8 +11,5 @@ public class MemoramaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memorama);
-
-        TextView textView = findViewById(R.id.textViewMensaje);
-        textView.setText("Hola Mundo - Memorama");
     }
 }
