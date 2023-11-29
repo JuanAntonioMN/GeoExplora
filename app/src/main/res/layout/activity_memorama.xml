@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:weightSum="3"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/textViewMensaje"
+    
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text=""/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_11"
+            android:layout_weight="1"
+            android:scaleType="centerInside"
+            android:src="@drawable/memorama_cangrejo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        
+    </LinearLayout>
+
+</LinearLayout>
