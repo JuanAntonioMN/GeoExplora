@@ -1,4 +1,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#000080" /> <!-- Color de fondo azul claro -->
-    <corners android:radius="10dp" /> <!-- Bordes redondeados, puedes ajustar el radio según tus preferencias -->
+    <gradient
+        android:startColor="#004080"
+    android:endColor="#0077B5"
+    android:type="linear"
+    android:angle="45"
+    />
 </shape>

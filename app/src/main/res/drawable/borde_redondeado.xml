@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Contenido blanco (puede ser transparente) con borde redondeado -->
+    <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+        <selector>
+            <!-- Estado presionado -->
+            <item android:state_pressed="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFF" /> <!-- Color del contenido (puede ser transparente) -->
+                    <corners android:radius="2000dp" /> <!-- Radio para bordes redondeados -->
+                </shape>
+                <shape android:shape="rectangle">
+                    <solid android:color="#F5F5F5" /> <!-- Color del contenido (puede ser transparente) -->
+                    <corners android:radius="0dp" /> <!-- Radio para bordes redondeados -->
+                </shape>
+            </item>
+            <!-- Estado no presionado -->
+            <item android:state_pressed="false">
+                <shape android:shape="rectangle">
+                    <solid android:color="#F5F5F5" /> <!-- Color del contenido (puede ser transparente) -->
+                    <corners android:radius="2000dp" /> <!-- Radio para bordes redondeados -->
+                </shape>
+                <shape android:shape="rectangle">
+                    <solid android:color="#FFFFFF" /> <!-- Color del contenido (puede ser transparente) -->
+                    <corners android:radius="0dp" /> <!-- Radio para bordes redondeados -->
+                </shape>
+            </item>
+        </selector>
+    </item>
+</layer-list>

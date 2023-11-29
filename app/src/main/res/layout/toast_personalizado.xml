@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <!-- Agrega una imagen -->
-
-    <!-- Agrega el texto del Toast -->
 
     <ImageView
         android:id="@+id/imagenToast"
-        android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:src="@drawable/logo"
+        android:paddingLeft="5dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textToast"
         app:layout_constraintHorizontal_bias="1.0"
@@ -23,11 +22,10 @@
     <TextView
         android:id="@+id/textToast"
         android:layout_width="225dp"
-        android:layout_height="70dp"
+        android:layout_height="35dp"
         android:layout_marginEnd="48dp"
-        android:text="texto"
-        android:textColor="#000"
-        android:textSize="20sp"
+        android:text="@string/Conetenidos"
+        android:textSize="6pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

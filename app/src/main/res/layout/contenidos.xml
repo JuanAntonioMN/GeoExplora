@@ -2,21 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="7.1dp"
+    android:paddingBottom="7dp"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imagen"
-        android:layout_width="88dp"
-        android:layout_height="55dp"
-
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/borde_redondeado"
+        android:layout_marginLeft="10dp"
         />
 
     <TextView
         android:id="@+id/tema"
         android:layout_width="306dp"
-        android:layout_height="55dp"
-
+        android:layout_height="50dp"
+        android:text="@string/Conetenidos"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:paddingLeft="20dp"
         />
 
 </LinearLayout>

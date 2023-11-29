@@ -3,6 +3,7 @@ package com.example.geoexplora;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -17,53 +18,38 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
 public class ContenidosFragment extends Fragment {
     ListView listView;
-    Contenidos[] temasGeografia;
+    List<Contenidos> temasGeografia;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Infla el diseño XML de la vista de contenidos
         View view = inflater.inflate(R.layout.contenidoslistview, container, false);
 
+        OperacionesContenidos contenidos=new OperacionesContenidos(getContext());
+        contenidos.abrir();
         listView=view.findViewById(R.id.listview);
-        temasGeografia =new Contenidos[] {
-                new Contenidos("Introducción a la geografía",R.drawable.introduccion,true),
-                new Contenidos("El universo",R.drawable.universo,true),
-                new Contenidos("El sistema solar",R.drawable.sistemasolar,false),
-                new Contenidos( "El planeta tierra",R.drawable.tierra,false),
-                new Contenidos("Estructura de la atmósfera",R.drawable.atmosfera,false),
-                new Contenidos("Elementos del clima",R.drawable.elementos,false),
-                new Contenidos("Los vientos",R.drawable.viento,false),
-                new Contenidos( "Las coordenadas",R.drawable.coordenadas,false),
-                new Contenidos("Estaciones del año",R.drawable.estaciones,false),
-                new Contenidos("El ciclo del agua",R.drawable.ciclo,false),
-                new Contenidos("Los continentes",R.drawable.continentes,false),
-                new Contenidos("Las eras geológicas de la tierra",R.drawable.eras,false),
-                new Contenidos("Mapa geográfico",R.drawable.mapageo,false),
-                new Contenidos("Oceanos y mares",R.drawable.oceanos,false),
-                new Contenidos( "Las montañas y volcanes",R.drawable.montana,false),
-                new Contenidos( "Los ecosistemas",R.drawable.ecosistemas,false),
-                new Contenidos( "Geografía de México",R.drawable.mexico,false),
-                new Contenidos("Los países y capitales",R.drawable.paises,false),
-                new Contenidos("Población y culturas del mundo",R.drawable.poblacion,false),
-                new Contenidos("Recursos naturales",R.drawable.recursosnaturales,false),
-                new Contenidos("Conservación del medio ambiente",R.drawable.consrvacion,false),
-                new Contenidos("Desastres naturales",R.drawable.desastre,false)
-        };
-
+        contenidos.eliminarTodosLosContenidos();
+        contenidos.insertarContenido("Introducción a la geografia",R.drawable.introduccion,"Informacion",1);
+        temasGeografia=contenidos.obtenerTodosLosContenidos();
 
         ContenidosAdapter contenidosAdapter= new ContenidosAdapter(this.getActivity(),temasGeografia);
         listView.setAdapter(contenidosAdapter);
         listView.setOnItemClickListener(evento);
+        contenidos.cerrar();
         return view;
+
     }
 
     private AdapterView.OnItemClickListener evento=(adapterview,view,i,l)->{
 
 
         Contenidos contenidos=(Contenidos) adapterview.getItemAtPosition(i);
-        if(temasGeografia[i].getBandera()==true){
+        if(temasGeografia.get(i).getBandera()==1){
             Intent intent=new Intent(getActivity(),ContenidosActivity.class);
+            intent.putExtra("tema", temasGeografia.get(i));
             startActivity(intent);
         }
         else{
@@ -82,22 +68,19 @@ public class ContenidosFragment extends Fragment {
             ImageView imageView = customToastView.findViewById(R.id.imagenToast);
 
         // Personalizar el texto y la imagen aquí si es necesario
-            textView.setText("Aun te falta concluir el tema: " + temasGeografia[i - 1].getTema());
-            imageView.setImageResource(temasGeografia[i - 1].getImagen());
+            textView.setText("Aún te falta concluir el tema: " + temasGeografia.get(i-1).getTema());
+            imageView.setImageResource(temasGeografia.get(i-1).getImagen());
             textView.setTextColor(Color.WHITE);
-            textView.setTextSize(15);
+
          // Aplicar el fondo personalizado al contenido del Toast
-            customToastView.setBackgroundResource(R.drawable.custom_toast_background); // El nombre del archivo XML
+            customToastView.setBackgroundResource(R.drawable.gradiente_card); // El nombre del archivo XML
 
         // Establecer la vista personalizada en el Toast
             customToast.setView(customToastView);
-            customToast.setGravity(Gravity.CENTER | Gravity.BOTTOM, 0, 0);
+            customToast.setGravity(Gravity.CENTER | Gravity.BOTTOM, 0, 50);
 
         // Mostrar el Toast personalizado
             customToast.show();
-
-
-
         }
 
     };

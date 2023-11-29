@@ -3,22 +3,29 @@ package com.example.geoexplora;
 import java.io.Serializable;
 
 public class Contenidos implements Serializable {
+
     private String Tema;
     private int Imagen;
-    private boolean bandera;
-    public Contenidos(String Tema,int Imagen,boolean bandera){
+
+    private String Contenidos;
+    private int bandera;
+
+
+    public Contenidos(String Tema,int Imagen,String contenidos,int bandera){
+
         this.Tema=Tema;
         this.Imagen=Imagen;
+        this.Contenidos=contenidos;
         this.bandera=bandera;
     }
 
     public String getTema() {
         return Tema;
     }
-    public boolean getBandera(){
+    public int getBandera(){
         return bandera;
     }
-    public void setBandera(boolean bandera){
+    public void setBandera(int bandera){
         this.bandera=bandera;
     }
     public void setTema(String tema) {
@@ -32,4 +39,11 @@ public class Contenidos implements Serializable {
     public void setImagen(int imagen) {
         Imagen = imagen;
     }
+    public void setContenidos(String contenidos){
+        Contenidos=contenidos;
+    }
+    public String getContenidos(){
+        return Contenidos;
+    }
+
 }

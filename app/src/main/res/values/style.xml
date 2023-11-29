@@ -2,10 +2,10 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 
-        <item name="colorPrimary">#000080</item>
+        <item name="colorPrimary">@color/degradado</item>
     </style>
     <style name="GoogleFontStyle">
-        <item name="android:fontFamily">@font/josefin_sans_italic_variable_font_wght</item>
+        <item name="android:fontFamily">@font/kid_regular</item>
     </style>
 
 </resources>

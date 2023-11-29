@@ -8,10 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class ContenidosAdapter extends ArrayAdapter<Contenidos> {
     Activity context;
-    Contenidos []datos;
-    ContenidosAdapter(Activity context,Contenidos []datos){
+    private final List<Contenidos> datos;
+    ContenidosAdapter(Activity context,List<Contenidos> datos){
         super(context,R.layout.contenidos,datos);
         this.context=context;
         this.datos=datos;
@@ -31,7 +33,7 @@ public class ContenidosAdapter extends ArrayAdapter<Contenidos> {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Contenidos contenido = datos[position];
+        Contenidos contenido = getItem(position);
         holder.tema.setText(contenido.getTema());
         holder.imagen.setImageResource(contenido.getImagen());
 
