@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DataBaseGeoExplora extends SQLiteOpenHelper {
     private static final String NOMBRE_BD = "GeoExploraUsuario.db";
-    private static final int VERSION_BD = 1;
+    private static final int VERSION_BD = 2;
 
     public DataBaseGeoExplora(Context context){
         super(context, NOMBRE_BD, null, VERSION_BD);
@@ -25,6 +25,14 @@ public class DataBaseGeoExplora extends SQLiteOpenHelper {
                 TableContenidos.Contenidos.COLUMNA_IMAGEN + " INTEGER NOT NULL, " +
                 TableContenidos.Contenidos.COLUMNA_INFORMACION + " TEXT NOT NULL, " +
                 TableContenidos.Contenidos.COLUMNA_BANDERA + " INTEGER NOT NULL);");
+
+        db.execSQL("CREATE TABLE " + TableImagenes.Imagenes.NOMBRE_TABLA + " (" +
+                TableImagenes.Imagenes._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                TableImagenes.Imagenes.COLUMNA_PRINCIPAL + " INTEGER NOT NULL, " +
+                TableImagenes.Imagenes.COLUMNA_SECUNDARIA + " INTEGER NOT NULL, " +
+                TableImagenes.Imagenes.COLUMNA_DATA1 + " INTEGER NOT NULL, " +
+                TableImagenes.Imagenes.COLUMNA_DATA2 + " INTEGER NOT NULL, " +
+                TableImagenes.Imagenes.COLUMNA_DATA3 + " INTEGER NOT NULL);");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

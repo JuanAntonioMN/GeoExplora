@@ -23,22 +23,22 @@ import java.util.List;
 public class ContenidosFragment extends Fragment {
     ListView listView;
     List<Contenidos> temasGeografia;
+    List<Imagenes> imagenes;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Infla el diseño XML de la vista de contenidos
         View view = inflater.inflate(R.layout.contenidoslistview, container, false);
-
         OperacionesContenidos contenidos=new OperacionesContenidos(getContext());
+        OperacionesImagenes imagen=new OperacionesImagenes(getContext());
         contenidos.abrir();
+        imagen.abrir();
         listView=view.findViewById(R.id.listview);
-        contenidos.eliminarTodosLosContenidos();
-        contenidos.insertarContenido("Introducción a la geografia",R.drawable.introduccion,"Informacion",1);
         temasGeografia=contenidos.obtenerTodosLosContenidos();
-
+        imagenes=imagen.obtenerTodasLasImagenes();
         ContenidosAdapter contenidosAdapter= new ContenidosAdapter(this.getActivity(),temasGeografia);
         listView.setAdapter(contenidosAdapter);
         listView.setOnItemClickListener(evento);
         contenidos.cerrar();
+        imagen.cerrar();
         return view;
 
     }
@@ -50,6 +50,7 @@ public class ContenidosFragment extends Fragment {
         if(temasGeografia.get(i).getBandera()==1){
             Intent intent=new Intent(getActivity(),ContenidosActivity.class);
             intent.putExtra("tema", temasGeografia.get(i));
+            intent.putExtra("imagenes",imagenes.get(i));
             startActivity(intent);
         }
         else{
