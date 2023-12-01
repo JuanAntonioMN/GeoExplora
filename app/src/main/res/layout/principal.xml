@@ -2,7 +2,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#F5F5F5"
+    android:background="#eaf4fe"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -23,10 +23,11 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/kid_uno"
             android:padding="1dp"
+            android:background="#b0e0e6"
             android:text="@string/app_name"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="50dp"
+            android:textColor="#273D49"
+            android:textSize="50sp"
             />
     </androidx.cardview.widget.CardView>
 
@@ -42,9 +43,11 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
+
             android:id="@+id/imageView"
             android:layout_width="300dp"
             android:layout_height="280dp"
+            android:background="#b0e0e6"
             app:srcCompat="@drawable/consrvacion" />
 
     </androidx.cardview.widget.CardView>
@@ -56,9 +59,11 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/kid_regular"
         android:text="@string/Inicio"
+        android:padding="10dp"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20dp"
+        android:background="#b0e0e6"
+        android:textColor="#273D49"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,23 +1,243 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tema"
-        android:layout_width="406dp"
-        android:layout_height="69dp"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:background="#eaf4fe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CardTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/Titulo"
+                    android:background="#84b6f4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/kid_uno"
+                    android:text="@string/Conetenidos"
+                    android:textAlignment="center"
+                    android:textSize="25sp" />
+            </androidx.cardview.widget.CardView>
 
 
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="8dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Primer LinearLayout -->
+        <LinearLayout
+            android:background="#87cefa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imagen1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp"
+                 />
+
+            <TextView
+                android:background="#b0e0e6"
+                android:id="@+id/parrafo1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#273D49"
+                android:fontFamily="@font/kid_regular"
+                android:textAlignment="textStart"
+                android:textSize="13sp"
+                android:text="@string/Conetenidos"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="8dp">
+
+        <!-- Segundo LinearLayout -->
+        <LinearLayout
+            android:background="#87cefa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imagen2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                android:background="#b0e0e6"
+                android:id="@+id/parrafo2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#273D49"
+                android:fontFamily="@font/kid_regular"
+                android:text="@string/Conetenidos"
+                android:textAlignment="textStart"
+                android:textSize="13sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+        </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="8dp">
+        <!-- Tercer LinearLayout -->
+
+
+        <LinearLayout
+            android:background="#87cefa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+
+                android:id="@+id/imagen3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp"
+               />
+
+            <TextView
+                android:background="#b0e0e6"
+                android:id="@+id/parrafo3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#273D49"
+                android:fontFamily="@font/kid_regular"
+                android:text="@string/Conetenidos"
+                android:textAlignment="textStart"
+                android:textSize="13sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="8dp">
+        <!-- Cuarto LinearLayout -->
+        <LinearLayout
+            android:background="#87cefa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imagen4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp"
+               />
+
+            <TextView
+                android:background="#b0e0e6"
+                android:id="@+id/parrafo4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#273D49"
+                android:fontFamily="@font/kid_regular"
+                android:text="@string/Conetenidos"
+                android:textAlignment="textStart"
+                android:textSize="13sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="8dp">
+        <!-- Quinto LinearLayout -->
+        <LinearLayout
+            android:background="#87cefa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imagen5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+
+                android:background="#b0e0e6"
+                android:id="@+id/parrafo5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#273D49"
+                android:fontFamily="@font/kid_regular"
+                android:text="@string/Conetenidos"
+                android:textAlignment="textStart"
+                android:textSize="13sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"/>
+        </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/cuestionario"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#84b6f4"
+            android:fontFamily="@font/kid_regular"
+            android:text="Cuestionario"
+            android:textColor="#1A262D"
+            android:layout_gravity="end"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</ScrollView>
