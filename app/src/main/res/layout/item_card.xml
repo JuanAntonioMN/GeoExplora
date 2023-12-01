@@ -4,8 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
         android:layout_width="350dp"
-        android:layout_height="320dp"
+        android:layout_height="350dp"
         android:elevation="40dp"
         app:cardBackgroundColor="#b0e0e6"
         android:layout_centerHorizontal="true"
@@ -21,17 +22,18 @@
                 android:id="@+id/textTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="30sp"
                 android:fontFamily="@font/kid_uno"
+                android:text="@string/app_name"
                 android:textAlignment="center"
-                android:textColor="#273D49" />
+                android:textColor="#273D49"
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/imagen"
                 android:layout_width="330dp"
                 android:layout_height="200dp"
-                android:layout_marginTop="8dp" />
+                android:layout_margin="10dp"
+                 />
 
             <TextView
                 android:id="@+id/textDescription"

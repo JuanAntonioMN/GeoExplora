@@ -34,6 +34,13 @@
             >
 
         </activity>
+        <activity
+            android:name=".ActividadAnimales"
+            android:theme="@style/AppTheme"></activity>
+
+        <activity
+            android:name=".ActividadBanderas"
+            android:theme="@style/AppTheme"></activity>
 
     </application>
 

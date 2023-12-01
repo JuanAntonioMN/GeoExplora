@@ -1,0 +1,68 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="380dp"
+        android:elevation="40dp"
+        app:cardBackgroundColor="#b0e0e6"
+        android:layout_centerHorizontal="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Contenido de la tarjeta -->
+            <ImageView
+                android:id="@+id/imagen"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                />
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del País"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/capital"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Capital: "
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/poblacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Población: "
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/idioma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Idioma: "
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/informacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Información Adicional: "
+                android:layout_marginTop="8dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

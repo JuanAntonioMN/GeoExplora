@@ -8,4 +8,6 @@ import retrofit2.http.GET;
 public interface ApiAnimales {
     @GET("/")
     Call<List<Animales>> getAnimales();
+    @GET("/paises")
+    Call<List<Banderas>> getBanderas();
 }

@@ -54,12 +54,12 @@ public class MemoramaActivity extends AppCompatActivity {
         setOnClickListeners();
     }
 
-    private void initializeViews() {
+   private void initializeViews() {
         tv_p1 = findViewById(R.id.jugador);
         int[] imageIds = {
-                R.id.iv_11, R.id.iv_12, R.id.iv_13, R.id.iv_14,
-                R.id.iv_21, R.id.iv_22, R.id.iv_23, R.id.iv_24,
-                R.id.iv_31, R.id.iv_32, R.id.iv_33, R.id.iv_34
+                R.id.iv_11, R.id.iv_11, R.id.iv_11, R.id.iv_11,
+                R.id.iv_11, R.id.iv_11, R.id.iv_11, R.id.iv_11,
+                R.id.iv_11, R.id.iv_11, R.id.iv_11, R.id.iv_11
         };
 
         for (int i = 0; i < imageViews.length; i++) {
