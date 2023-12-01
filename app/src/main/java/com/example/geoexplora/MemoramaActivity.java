@@ -143,14 +143,14 @@ public class MemoramaActivity extends AppCompatActivity {
     private void checkEnd() {
         if (Arrays.stream(imageViews).allMatch(iv -> iv.getVisibility() == View.INVISIBLE)) {
             new AlertDialog.Builder(this)
-                    .setMessage("Game Over \nPuntos: " + playerPoints)
+                    .setMessage("Genial, terminaste el juego! \nPuntos: " + playerPoints)
                     .setCancelable(false)
-                    .setPositiveButton("New", (dialogInterface, i) -> {
+                    .setPositiveButton("Jugar de nuevo", (dialogInterface, i) -> {
                         Intent intent = new Intent(getApplicationContext(), MemoramaActivity.class);
                         startActivity(intent);
                         finish();
                     })
-                    .setNegativeButton("Exit", (dialogInterface, i) -> finish())
+                    .setNegativeButton("Salir", (dialogInterface, i) -> finish())
                     .show();
         }
     }

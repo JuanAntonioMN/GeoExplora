@@ -121,36 +121,26 @@ public class perfilFragment extends Fragment{
         db.close();
     }
     private int obtenerPuntaje(SQLiteDatabase db, String nombreUsuario) {
-        // Define la proyección que contiene solo la columna de puntaje
-        String[] proyeccion = {TableUsuario.Usuarios.COLUMNA_PUNTAJE};
-
-        // Especifica la cláusula WHERE para buscar el nombre de usuario
-        String seleccion = TableUsuario.Usuarios.COLUMNA_ALIAS + " = ?";
-        String[] seleccionArgs = {nombreUsuario};
-
-        // Realiza la consulta
-        Cursor cursor = db.query(
-                TableUsuario.Usuarios.NOMBRE_TABLA,  // Nombre de la tabla
-                proyeccion,                         // Columnas que deseas obtener
-                seleccion,                          // Cláusula WHERE
-                seleccionArgs,                      // Valores de la cláusula WHERE
-                null,                               // No agrupar las filas
-                null,                               // No filtrar por grupos de filas
-                null                                // No ordenar el resultado
-        );
-
         int puntaje = 0;
 
-        // Verifica si hay algún resultado y obtén el puntaje
+        // Realizar una consulta para obtener el puntaje del usuario
+        Cursor cursor = db.query(
+                TableUsuario.Usuarios.NOMBRE_TABLA,
+                new String[]{TableUsuario.Usuarios.COLUMNA_PUNTAJE},
+                TableUsuario.Usuarios.COLUMNA_ALIAS + " = ?",
+                new String[]{nombreUsuario},
+                null,
+                null,
+                null
+        );
+
         if (cursor != null && cursor.moveToFirst()) {
-            int indicePuntaje = cursor.getColumnIndex(TableUsuario.Usuarios.COLUMNA_PUNTAJE);
-            puntaje = cursor.getInt(indicePuntaje);
+            puntaje = cursor.getInt(cursor.getColumnIndex(TableUsuario.Usuarios.COLUMNA_PUNTAJE));
             cursor.close();
         }
 
         return puntaje;
     }
-
 }
 
 

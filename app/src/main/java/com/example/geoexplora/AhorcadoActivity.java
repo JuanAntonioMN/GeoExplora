@@ -1,5 +1,6 @@
 package com.example.geoexplora;
 
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AhorcadoActivity extends AppCompatActivity {
@@ -43,6 +45,19 @@ public class AhorcadoActivity extends AppCompatActivity {
             {"Tapir", "Son animales herbívoros que pueden llegar a pesar hasta 300 kg.", "Tienen una trompa prensil que utilizan para agarrar hojas y frutas.", "Son conocidos por ser solitarios y retraídos.", "Se encuentran en selvas y bosques tropicales de América Central y América del Sur.", "Son importantes para la dispersión de semillas en sus hábitats."},
             {"Ocelote", "Son cazadores sigilosos y se mueven con facilidad entre los árboles y la maleza.", "Su pelaje manchado los hace parecerse a pequeños leopardos.", "Se encuentran en una variedad de hábitats, desde selvas hasta zonas de matorrales.", "Son solitarios y marcan su territorio con orina y rasguños.", "Son conocidos por su visión aguda y su capacidad para cazar en la oscuridad."}
     };
+    String[][] infoAnimales = {
+            {"Jaguar", "El jaguar es el felino más grande de América y el tercer felino más grande del mundo, después del tigre y el león. Son conocidos por su fuerza y agilidad."},
+            {"Quetzal", "El quetzal, además de su belleza, tiene un significado cultural en Mesoamérica. Los antiguos mayas y aztecas lo consideraban sagrado y asociaban el quetzal con la libertad y la divinidad."},
+            {"Venado", "Los venados son conocidos por sus majestuosos cuernos. En muchas culturas indígenas de México, el venado es un símbolo de la naturaleza y la espiritualidad."},
+            {"Lobo mexicano", "El lobo mexicano es una subespecie en peligro crítico de extinción. En un esfuerzo por salvarlos de la extinción, se han realizado programas de reproducción en cautiverio."},
+            {"Tlacuache", "El tlacuache es el único marsupial que se encuentra en América del Norte. Son conocidos por su capacidad para resistir venenos de serpientes y su naturaleza nocturna."},
+            {"Nutria", "Las nutrias son conocidas por su pelaje denso y su amor por el agua. Tienen una bolsa en la que almacenan su comida y herramientas."},
+            {"Ajolote", "El ajolote es una especie única en México que ha desarrollado la capacidad de regenerar sus extremidades y otros órganos, lo que lo hace un objeto de estudio importante en biología."},
+            {"Teporingo", "El teporingo, también conocido como conejo zacatuche, es una especie endémica de México y está en peligro de extinción. Es uno de los conejos más pequeños del mundo."},
+            {"Tapir", "Los tapires son conocidos como 'los jardineros de la selva' debido a su papel en la dispersión de semillas en los bosques tropicales."},
+            {"Ocelote", "Los ocelotes son cazadores sigilosos y están muy bien adaptados para la vida en la selva. Son conocidos por sus manchas y rayas."}
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,6 +148,8 @@ public class AhorcadoActivity extends AppCompatActivity {
         updateUI();
         if (hiddenWord.equalsIgnoreCase(word)) {
             Toast.makeText(this, "¡Bien hecho! Has adivinado la palabra: " + word, Toast.LENGTH_LONG).show();
+            // Mostrar el diálogo de información del animal
+            showAnimalInfoDialog(infoAnimales[currentAnimalIndex]);
             initializeGame();
         }
         if (bodyParts == 0) {
@@ -164,5 +181,19 @@ public class AhorcadoActivity extends AppCompatActivity {
             String displayedInfo = infoAnimal[infoIndex];
             animalInfoTextView.setText(displayedInfo);
         }
+    }
+    private void showAnimalInfoDialog(String[] infoAnimal) {
+        // Crear un diálogo
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Configurar el contenido del diálogo
+        builder.setTitle(infoAnimal[0])  // El nombre del animal
+                .setMessage(infoAnimal[1])  // La información del animal
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // Puedes agregar acciones adicionales si es necesario
+                    }
+                });
+        // Mostrar el diálogo
+        builder.create().show();
     }
 }
