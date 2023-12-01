@@ -17,28 +17,36 @@
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_12"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_13"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_14"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -53,28 +61,36 @@
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_22"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_23"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_24"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -89,28 +105,36 @@
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_32"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_33"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
         <ImageView
             android:id="@+id/iv_34"
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/memorama_back"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
 </LinearLayout>

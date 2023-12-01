@@ -1,5 +1,6 @@
 package com.example.geoexplora;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ public class AhorcadoActivity extends AppCompatActivity {
     private int infoIndex = 0;
     private static final int INFO_INTERVAL = 5000;
     private int currentAnimalIndex = 0;
+    private MediaPlayer mediaPlayer;
     String[] animalsArray = {
             "Jaguar", "Quetzal", "Venado", "Lobo mexicano", "Tlacuache",
             "Nutria", "Ajolote", "Teporingo", "Tapir", "Ocelote"};
@@ -52,6 +54,7 @@ public class AhorcadoActivity extends AppCompatActivity {
         animalInfoTextView = findViewById(R.id.animalInfoTextView);
 
         initializeGame();
+        initializeMusic();
         handler.postDelayed(infoUpdateRunnable, INFO_INTERVAL);
 
         guessButton.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +63,24 @@ public class AhorcadoActivity extends AppCompatActivity {
                 makeGuess();
             }
         });
+    }
+    private void initializeMusic() {
+        try {
+            mediaPlayer = MediaPlayer.create(this, R.raw.cancion);
+            mediaPlayer.setLooping(true);  // Esto establece la reproducción en bucle
+            mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
     }
 
     private void initializeGame() {

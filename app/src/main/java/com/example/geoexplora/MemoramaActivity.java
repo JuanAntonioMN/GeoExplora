@@ -1,7 +1,7 @@
 package com.example.geoexplora;
 
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -12,25 +12,45 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class MemoramaActivity extends AppCompatActivity {
     private TextView tv_p1;
     private ImageView[] imageViews = new ImageView[12];
     private Integer[] cardsArray = {101, 102, 103, 104, 105, 106, 201, 202, 203, 204, 205, 206};
-    private int m_cangrejo, m_elefante, m_hipopotamo, m_jirafa, m_koala, m_mono,
-            m_cangrejo_2, m_elefante_2, m_hipopotamo_2, m_jirafa_2, m_koala_2, m_mono_2;
     private int firstCard, secondCard;
     private int clickedFirst, clickedSecond;
     private int cardNumber = 1;
     private int turn = 1;
     private int playerPoints = 0;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_memorama);
         initializeViews();
-        frontOfCardsResources();
+        try {
+            // Intenta inicializar el MediaPlayer
+            mediaPlayer = MediaPlayer.create(this, R.raw.cancion);
+            mediaPlayer.setLooping(true);  // Esto establece la reproducción en bucle
+            mediaPlayer.start();
+        } catch (Exception e) {
+            // Captura cualquier excepción y muestra el rastreo en la consola
+            e.printStackTrace();
+        }
+        findViewById(android.R.id.content).post(() -> {
+            Collections.shuffle(Arrays.asList(cardsArray)); // Baraja las cartas
+            // Asigna las imágenes de memorama_back a todas las ImageView
+            // Luego, asigna las imágenes barajadas a las ImageView
+            for (int i = 0; i < imageViews.length; i++) {
+                int card = cardsArray[i];
+                int cardResource = mapCardToResource(card);
+                imageViews[i].setImageResource(cardResource);
+                imageViews[i].invalidate(); // Forzar la redibujación
+            }
+            Arrays.asList(imageViews).forEach(iv -> iv.setImageResource(R.drawable.memorama_back));
+        });
         setOnClickListeners();
     }
 
@@ -47,36 +67,26 @@ public class MemoramaActivity extends AppCompatActivity {
             imageViews[i].setTag(String.valueOf(i)); // Set tag as the position in the array
         }
     }
-
-    private void frontOfCardsResources() {
-        m_cangrejo = R.drawable.memorama_cangrejo;
-        m_elefante = R.drawable.memorama_elefante;
-        m_hipopotamo = R.drawable.memorama_hipopotamo;
-        m_jirafa = R.drawable.memorama_jirafa;
-        m_koala = R.drawable.memorama_koala;
-        m_mono = R.drawable.memorama_mono;
-        m_cangrejo_2 = R.drawable.memorama_cangrejo_2;
-        m_elefante_2 = R.drawable.memorama_elefante_2;
-        m_hipopotamo_2 = R.drawable.memorama_hipopotamo_2;
-        m_jirafa_2 = R.drawable.memorama_jirafa_2;
-        m_koala_2 = R.drawable.memorama_koala_2;
-        m_mono_2 = R.drawable.memorama_mono_2;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Liberar recursos del MediaPlayer
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
-
     private void setOnClickListeners() {
         for (final ImageView iv : imageViews) {
-            iv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int theCard = Integer.parseInt((String) v.getTag());
-                    doStuff(iv, theCard);
-                }
+            iv.setOnClickListener(v -> {
+                int theCard = Integer.parseInt((String) v.getTag());
+                doStuff(iv, theCard);
             });
         }
     }
 
     private void doStuff(ImageView iv, int card) {
-        int cardResource = mapCardToResource(cardsArray[card]);
+        int cardResource = mapCardToResource(cardsArray[card] % 100);
         iv.setImageResource(cardResource);
 
         if (cardNumber == 1) {
@@ -91,43 +101,35 @@ public class MemoramaActivity extends AppCompatActivity {
 
             disableAllImageViews();
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    calculate();
-                }
-            }, 1000);
+            new Handler().postDelayed(() -> calculate(), 500);
         }
     }
 
     private int mapCardToResource(int card) {
         int[] cardResources = {
-                m_cangrejo, m_elefante, m_hipopotamo, m_jirafa, m_koala, m_mono,
-                m_cangrejo_2, m_elefante_2, m_hipopotamo_2, m_jirafa_2, m_koala_2, m_mono_2
+                R.drawable.memorama_cangrejo, R.drawable.memorama_elefante, R.drawable.memorama_hipopotamo,
+                R.drawable.memorama_jirafa, R.drawable.memorama_koala, R.drawable.memorama_mono,
+                R.drawable.memorama_cangrejo_2, R.drawable.memorama_elefante_2, R.drawable.memorama_hipopotamo_2,
+                R.drawable.memorama_jirafa_2, R.drawable.memorama_koala_2, R.drawable.memorama_mono_2
         };
         return cardResources[card % 100];
     }
 
     private void disableAllImageViews() {
-        for (ImageView iv : imageViews) {
-            iv.setEnabled(false);
-        }
+        Arrays.asList(imageViews).forEach(iv -> iv.setEnabled(false));
     }
 
     private void calculate() {
         if (firstCard == secondCard) {
-            for (int clicked : Arrays.asList(clickedFirst, clickedSecond)) {
-                imageViews[clicked].setVisibility(View.INVISIBLE);
-            }
+            Arrays.asList(clickedFirst, clickedSecond).forEach(clicked ->
+                    imageViews[clicked].setVisibility(View.INVISIBLE));
 
             if (turn == 1) {
                 playerPoints++;
                 tv_p1.setText("Puntos: " + playerPoints);
             }
         } else {
-            for (ImageView iv : imageViews) {
-                iv.setImageResource(R.drawable.memorama_back);
-            }
+            Arrays.asList(imageViews).forEach(iv -> iv.setImageResource(R.drawable.memorama_back));
         }
 
         enableAllImageViews();
@@ -135,9 +137,7 @@ public class MemoramaActivity extends AppCompatActivity {
     }
 
     private void enableAllImageViews() {
-        for (ImageView iv : imageViews) {
-            iv.setEnabled(true);
-        }
+        Arrays.asList(imageViews).forEach(iv -> iv.setEnabled(true));
     }
 
     private void checkEnd() {
@@ -145,20 +145,12 @@ public class MemoramaActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setMessage("Game Over \nPuntos: " + playerPoints)
                     .setCancelable(false)
-                    .setPositiveButton("New", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(getApplicationContext(), MemoramaActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
+                    .setPositiveButton("New", (dialogInterface, i) -> {
+                        Intent intent = new Intent(getApplicationContext(), MemoramaActivity.class);
+                        startActivity(intent);
+                        finish();
                     })
-                    .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
-                        }
-                    })
+                    .setNegativeButton("Exit", (dialogInterface, i) -> finish())
                     .show();
         }
     }

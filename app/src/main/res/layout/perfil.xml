@@ -15,7 +15,7 @@
         android:id="@+id/imagenPerfil"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
@@ -41,16 +41,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/juegoNombre"
         android:layout_centerHorizontal="true"
-        android:text="Racha de juegos ganados: 0" />
+        android:text="Total de puntos: 0" />
 
     <Button
         android:id="@+id/btnFondo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewWinStreak"
+        android:layout_below="@id/btnGuardarNombre"
         android:layout_centerHorizontal="true"
         android:text="Cambiar Fondo" />
 
+    <EditText
+        android:id="@+id/editTextNombreUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/juegoNombre"
+        android:layout_marginTop="20dp"
+        android:hint="Ingrese su nombre"
+        android:gravity="center"/>
 
+    <Button
+        android:id="@+id/btnGuardarNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNombreUsuario"
+        android:layout_centerHorizontal="true"
+        android:text="Guardar Nombre" />
 
 </RelativeLayout>
